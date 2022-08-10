@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package madera;
+
+import "google/protobuf/timestamp.proto";
+
+message Phone {
+
+  enum PhoneNetwork {
+    VODAPHONE = 0;
+    EE = 1;
+    O2 = 2;
+  }
+  
+  enum PhoneType {
+    ANDROID = 0;
+    APPLE = 1;
+  }
+  uint32 id = 1;
+  string name = 2;
+  PhoneNetwork network = 3;
+  bool active = 4;
+  PhoneType type = 5;
+  google.protobuf.Timestamp created = 6;
+}
+
+message PhoneList {
+	repeated Phone phones = 1;
+}
